@@ -9,9 +9,86 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/page.css">
+
+        <base href="">
     </head>
-    <body>
-        <p>This is HTML5 Boilerplate.</p>
+    <body ng-app="hackApp">
+        <div ng-controller="MainController">
+          Choose:
+          <a href="Book/Moby">Moby</a> |
+          <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+          <a href="Book/Gatsby">Gatsby</a> |
+          <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+          <a href="Book/Scarlet">Scarlet Letter</a><br/>
+
+          <div ng-view></div>
+
+          <hr />
+
+          <pre>$location.path() = {{$location.path()}}</pre>
+          <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+          <pre>$route.current.params = {{$route.current.params}}</pre>
+          <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+          <pre>$routeParams = {{$routeParams}}</pre>
+        </div>
+
+        <div class="container">
+            <div class="padding"></div>
+            <div class="content">asdasdasdads</div>
+            <div class="padding"></div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
         <script src="js/page.js"></script>
     </body>
+    <script type="text/javascript">
+    (function(angular) {
+        console.log(angular.version);
+        var hackApp =  angular.module('hackApp', ['ngRoute']);
+
+        hackApp.controller('MainController', function($scope, $route, $routeParams, $location ) {
+            $scope.$route = $route;
+            $scope.$location = $location;
+            $scope.$routeParams = $routeParams;
+        });
+
+        hackApp.controller('BookController', function($scope, $routeParams) {
+            $scope.name = 'BookController';
+            $scope.params = $routeParams;
+        });
+
+        hackApp.controller('ChapterController', function($scope, $routeParams) {
+            $scope.name = 'ChapterController';
+            $scope.params = $routeParams;
+        });
+
+        hackApp.config(function($routeProvider, $locationProvider) {
+
+            $routeProvider
+            .when('/Book/:bookId', {
+                templateUrl: 'template/input.html',
+                controller: 'BookController',
+                resolve: {
+                    // I will cause a 1 second delay
+                    delay: function($q, $timeout) {
+                        var delay = $q.defer();
+                        $timeout(delay.resolve, 1000);
+                        return delay.promise;
+                    }
+                }
+            })
+            .when('/Book/:bookId/ch/:chapterId', {
+                templateUrl: 'template/input.html',
+                controller: 'ChapterController'
+            });
+
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
+        });
+    })(window.angular);
+    </script>
 </html>

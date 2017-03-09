@@ -1,0 +1,14 @@
+.container {
+  display: flex; /* or inline-flex */
+  align-items: center;
+  background-color: red;
+}
+
+.content {
+  flex-grow: 10; /* default 0 */
+  background-color: white;
+}
+
+.padding {
+    flex-shrink: 1;
+}
