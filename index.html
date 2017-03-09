@@ -68,7 +68,7 @@
 
             $routeProvider
             .when('/Book/:bookId', {
-                templateUrl: 'template/input.html',
+                templateUrl: 'template/base.html',
                 controller: 'BookController',
                 resolve: {
                     // I will cause a 1 second delay
@@ -80,7 +80,7 @@
                 }
             })
             .when('/Book/:bookId/ch/:chapterId', {
-                templateUrl: 'template/input.html',
+                templateUrl: 'template/base.html',
                 controller: 'ChapterController'
             });
 
