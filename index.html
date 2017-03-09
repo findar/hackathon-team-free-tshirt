@@ -12,102 +12,82 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css.map">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <base href="">
     </head>
     <body ng-app="hackApp">
         <div ng-controller="MainController">
-          Choose:
-          <a href="Book/Moby">Moby</a> |
-          <a href="Book/Moby/ch/1">Moby: Ch1</a> |
-          <a href="Book/Gatsby">Gatsby</a> |
-          <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
-          <a href="Book/Scarlet">Scarlet Letter</a><br/>
+            <pre>$location.path() = {{$location.path()}}</pre>
+            <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+            <pre>$route.current.params = {{$route.current.params}}</pre>
+            <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+            <pre>$routeParams = {{$routeParams}}</pre>
 
-          <div ng-view></div>
-
-          <hr />
-
-          <pre>$location.path() = {{$location.path()}}</pre>
-          <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-          <pre>$route.current.params = {{$route.current.params}}</pre>
-          <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-          <pre>$routeParams = {{$routeParams}}</pre>
-        </div>
-
-        <div class="columns">
-            <div class="column is-3"></div>
-            <div class="column is-6">
-                <div class="tabs is-centered">
-                  <ul>
-                    <li class="is-active">
-                      <a href="Budget">
-                        <span class="icon is-medium"><i class="fa fa-money"></i></span>
-                        <span>Budget</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="Targeting">
-                        <span class="icon is-medium"><i class="fa fa-bullseye"></i></span>
-                        <span>Targeting</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="Bid">
-                        <span class="icon is-medium"><i class="fa fa-hand-pointer-o"></i></span>
-                        <span>Bid</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="Content">
-                        <span class="icon is-medium"><i class="fa fa-picture-o"></i></span>
-                        <span>Content</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-            </div>
-            <div class="column"></div>
-        </div>
-        <div class="columns">
-            <div class="column is-1"></div>
-            <div class="column is-2">
-                <div class="box">
-                    LANA DATA BLAH BLAH BLAH
-                </div>
-            </div>
-            <div class="column is-6">
-                <div class="box is-10 is-vertical">
-                    <div class="content">
-                        <h1>Hello World</h1>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-                          <h2>Second level</h2>
-                          <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
-                          <ul>
-                            <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-                            <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-                            <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
-                            <li>Ut non enim metus.</li>
-                          </ul>
-                          <h3>Third level</h3>
-                          <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="#">non ante</a>. Phasellus lacus ex, semper ac tortor nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
-
+            <div class="columns">
+                <div class="column is-3"></div>
+                <div class="column is-6">
+                    <div class="tabs is-centered">
+                      <ul>
+                        <li class="is-active">
+                          <a href="Budget">
+                            <span class="icon is-medium"><i class="fa fa-money"></i></span>
+                            <span>Budget</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Targeting">
+                            <span class="icon is-medium"><i class="fa fa-bullseye"></i></span>
+                            <span>Targeting</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Bid">
+                            <span class="icon is-medium"><i class="fa fa-hand-pointer-o"></i></span>
+                            <span>Bid</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Content">
+                            <span class="icon is-medium"><i class="fa fa-picture-o"></i></span>
+                            <span>Content</span>
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                 </div>
+                <div class="column"></div>
             </div>
-            <div class="column"></div>
-        </div>
-        <div class="columns">
-            <div class="column is-3"></div>
-            <div class="column is-6">
-                <a class="button is-large">Next</a>
-            </div>
-            <div class="column"></div>
-        </div>
+            <div class="columns">
+                <div class="column is-1"></div>
+                <div class="column is-2">
+                    <div class="box">
+                        LANA DATA BLAH BLAH BLAH
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box is-10 is-vertical">
+                        <div class="content">
+                            <h1>Hello World</h1>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+                            <div ng-view></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+            <div class="columns">
+                <div class="column is-3"></div>
+                <div class="column is-6">
+                    <a class="button is-large">Next</a>
+                </div>
+                <div class="column"></div>
+            </div>
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
         <script src="js/page.js"></script>
+        <script type="text/javascript">
+            angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+        </script>
     </body>
     <script type="text/javascript">
     (function(angular) {
@@ -120,40 +100,32 @@
             $scope.$routeParams = $routeParams;
         });
 
-        hackApp.controller('BookController', function($scope, $routeParams) {
-            $scope.name = 'BookController';
-            $scope.params = $routeParams;
-        });
-
-        hackApp.controller('ChapterController', function($scope, $routeParams) {
-            $scope.name = 'ChapterController';
+        hackApp.controller('testController', function($scope, $routeParams) {
+            $scope.name = 'testController';
             $scope.params = $routeParams;
         });
 
         hackApp.config(function($routeProvider, $locationProvider) {
 
             $routeProvider
-            .when('/Book/:bookId', {
-                templateUrl: 'template/base.html',
-                controller: 'BookController',
-                resolve: {
-                    // I will cause a 1 second delay
-                    delay: function($q, $timeout) {
-                        var delay = $q.defer();
-                        $timeout(delay.resolve, 1000);
-                        return delay.promise;
-                    }
-                }
+            .when('/Budget', {
+                templateUrl: 'template/budget.html',
+                controller: 'testController'
             })
-            .when('/Book/:bookId/ch/:chapterId', {
-                templateUrl: 'template/base.html',
-                controller: 'ChapterController'
+            .when('/Targeting', {
+                templateUrl: 'template/targeting.html',
+                controller: 'testController'
+            })
+            .when('/Bid', {
+                templateUrl: 'template/bid.html',
+                controller: 'testController'
+            })
+            .when('/Content', {
+                templateUrl: 'template/content.html',
+                controller: 'testController'
             });
 
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-            });
+            $locationProvider.html5Mode(true);
         });
     })(window.angular);
     </script>
