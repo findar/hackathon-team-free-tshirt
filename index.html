@@ -76,7 +76,7 @@
             <div class="columns">
                 <div class="column is-3"></div>
                 <div class="column is-6">
-                    <a class="button is-medium">Next</a>
+                    <a class="button is-medium is-primary">Next</a>
                 </div>
                 <div class="column"></div>
             </div>
@@ -98,7 +98,7 @@
             $scope.$route = $route;
             $scope.$location = $location;
             $scope.$routeParams = $routeParams;
-            $scope.magicNumber = 100000;
+            $scope.magicNumber = 107000;
         });
 
         hackApp.controller('testController', function($scope, $routeParams) {
@@ -128,12 +128,16 @@
             .when('/Content', {
                 templateUrl: 'template/content.html',
                 controller: 'testController'
+            })
+            .when('/Complete', {
+                templateUrl: 'template/complete.html',
+                controller: 'testController'
             });
 
             $locationProvider.html5Mode(true);
         });
 
-        myModule.factory('lanaService', function() {
+        hackApp.factory('lanaService', function() {
             var _lanaService;
             // factory function body that constructs shinyNewServiceInstance
             return _lanaService;
