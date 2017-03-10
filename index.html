@@ -15,36 +15,37 @@
     </head>
     <body ng-app="hackApp">
         <div ng-controller="MainController">
+            <pre>-- {{$location.path() === '/Budget' || $location.path() === '/'}} --</pre>
             <pre>$location.path() = {{$location.path()}}</pre>
             <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
             <pre>$route.current.params = {{$route.current.params}}</pre>
             <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-            <pre>$routeParams = {{$routeParams}}</pre>
+           <pre>$routeParams = {{$routeParams}}</pre>
 
             <div class="columns">
                 <div class="column is-3"></div>
                 <div class="column is-6">
                     <div class="tabs is-centered">
                       <ul>
-                        <li class="is-active">
+                        <li ng-class="{ 'is-active' : $location.path() === '/Budget' || $location.path() === '/' }">
                           <a href="Budget">
                             <span class="icon is-medium"><i class="fa fa-money"></i></span>
                             <span>Budget</span>
                           </a>
                         </li>
-                        <li>
+                        <li ng-class="{ 'is-active' : $location.path() === '/Targeting'}">
                           <a href="Targeting">
                             <span class="icon is-medium"><i class="fa fa-bullseye"></i></span>
                             <span>Targeting</span>
                           </a>
                         </li>
-                        <li>
+                        <li ng-class="{ 'is-active' : $location.path() === '/Bid'}">
                           <a href="Bid">
                             <span class="icon is-medium"><i class="fa fa-hand-pointer-o"></i></span>
                             <span>Bid</span>
                           </a>
                         </li>
-                        <li>
+                        <li ng-class="{ 'is-active' : $location.path() === '/Content'}">
                           <a href="Content">
                             <span class="icon is-medium"><i class="fa fa-picture-o"></i></span>
                             <span>Content</span>
@@ -75,7 +76,7 @@
             <div class="columns">
                 <div class="column is-3"></div>
                 <div class="column is-6">
-                    <a class="button is-large">Next</a>
+                    <a class="button is-medium">Next</a>
                 </div>
                 <div class="column"></div>
             </div>
@@ -108,6 +109,10 @@
         hackApp.config(function($routeProvider, $locationProvider) {
 
             $routeProvider
+            .when('/', {
+                templateUrl: 'template/budget.html',
+                controller: 'testController'
+            })
             .when('/Budget', {
                 templateUrl: 'template/budget.html',
                 controller: 'testController'
