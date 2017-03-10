@@ -59,14 +59,13 @@
                 <div class="column is-1"></div>
                 <div class="column is-2">
                     <div class="box">
-                        LANA DATA BLAH BLAH BLAH
+                        <strong>{{ magicNumber | number:0 }}</strong>
+                        Forecasted Daily Available Impressions
                     </div>
                 </div>
                 <div class="column is-6">
                     <div class="box is-10 is-vertical">
                         <div class="content">
-                            <h1>Hello World</h1>
-
                             <div ng-view></div>
                         </div>
                     </div>
@@ -98,6 +97,7 @@
             $scope.$route = $route;
             $scope.$location = $location;
             $scope.$routeParams = $routeParams;
+            $scope.magicNumber = 100000;
         });
 
         hackApp.controller('testController', function($scope, $routeParams) {
@@ -126,6 +126,12 @@
             });
 
             $locationProvider.html5Mode(true);
+        });
+
+        myModule.factory('lanaService', function() {
+            var _lanaService;
+            // factory function body that constructs shinyNewServiceInstance
+            return _lanaService;
         });
     })(window.angular);
     </script>
